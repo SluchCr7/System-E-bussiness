@@ -102,11 +102,11 @@ export default function Dashboard() {
                 <ArrowUp className="w-4 h-4 text-yellow-500" />
               </div>
               <div className="flex justify-between items-center">
-                <p>Anna's Birthday</p>
+                <p>Anna`&apos;`s Birthday</p>
                 <ArrowDown className="w-4 h-4 text-green-500" />
               </div>
               <div className="flex justify-between items-center">
-                <p>Ray's Birthday</p>
+                <p>Ray`&apos;`s Birthday</p>
                 <ArrowDown className="w-4 h-4 text-green-500" />
               </div>
             </div>
