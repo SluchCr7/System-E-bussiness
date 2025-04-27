@@ -9,16 +9,19 @@ import Calender from './compoennts/Calender'
 import Profile from "./compoennts/Profile";
 import EmployeeList from './compoennts/Employees'
 import  VacationDashboard from './compoennts/Vacation'
+import Notifications from "./compoennts/notificationMenu";
 export default function Home() {
   const [active, setActive] = useState('Dashboard');
+  const [showNotifications , setShowNotifications] = useState(false)
   return (
-    <div className="flex w-full bg-[#F4F9FD]">
+    <div className="flex w-full relative bg-[#F4F9FD]">
+      <Notifications showNotifications={showNotifications} setShowNotifications={setShowNotifications}/>
       {/* <AddEventModal/> */}
       <div className="w-[15%]">
         <Aside active={active} setActive={setActive}/>
       </div>
       <div className="w-[80%] mx-auto pl-3 flex items-center flex-col gap-3">
-        <Nav />
+        <Nav setShowNotifications={setShowNotifications} showNotifications={showNotifications} />
         {
           active === 'Dashboard' ? <Dashboard />:
           active === "Calendar" ? <Calender/> : 

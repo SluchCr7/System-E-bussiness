@@ -2,6 +2,8 @@
 
 import Image from 'next/image';
 import { Calendar, ArrowDown, ArrowUp, Users } from 'lucide-react';
+import { CiCalendar } from "react-icons/ci";
+import { CiTimer } from "react-icons/ci";
 
 const users = [
   { name: 'Shawn Stone', role: 'UI/UX Designer', level: 'Middle', img: '/avatars/user1.png' },
@@ -70,18 +72,26 @@ export default function Dashboard() {
           </div>
           <div className="space-y-4">
             {projects.map((project, i) => (
-              <div key={i} className="bg-blue-50 rounded-lg p-4 flex justify-between items-center">
-                <div>
+              <div key={i} className="bg-blue-50 rounded-lg p-4 flex justify-between items-center w-full h-full">
+                <div className='w-[50%] border-r border-gray-300 h-full'>
                   <p className="font-semibold">{project.title}</p>
-                  <p className="text-xs text-gray-500">Created {project.date}</p>
+                  <div className='pt-2 pr-4 flex items-center justify-between w-full'>
+                    <div className="text-xs text-gray-500 flex items-center gap-1">
+                      <CiCalendar className="w-4 h-4" />
+                      <span>Created {project.date}</span>
+                    </div>
+                    <span className="text-xs text-red-700">Medium</span>
+                  </div>
                 </div>
-                <div className="text-right">
-                  <p className="text-xs font-semibold text-gray-600">Project Data</p>
-                  <p className="text-xs">All tasks: {project.stats.all}</p>
-                  <p className="text-xs">Active tasks: {project.stats.active}</p>
-                  <p className="text-xs flex items-center justify-end">
-                    <Users className="w-4 h-4 mr-1" /> +{project.stats.assignees}
-                  </p>
+                <div className="w-[50%] pl-3">
+                  <p className="text-base font-semibold text-gray-600">Project Data</p>
+                  <div className='flex flex-col md:flex-row items-center gap-2 pt-2 w-full justify-around'>
+                    <p className="text-xs flex items-start flex-col gap-1 text-gray-400">All tasks: <span className='text-black'>{project.stats.all}</span></p>
+                    <p className="text-xs flex items-start flex-col gap-1 text-gray-400">Active tasks: <span className='text-black'>{project.stats.active}</span></p>
+                    <p className="text-xs flex items-start flex-col gap-1 text-gray-400">
+                      users <span className='text-black'>+{project.stats.assignees}</span>
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -97,17 +107,44 @@ export default function Dashboard() {
               <a className="text-blue-600 text-sm font-medium" href="#">View all</a>
             </div>
             <div className="space-y-3 text-sm">
-              <div className="flex justify-between items-center">
-                <p>Presentation of the new department</p>
-                <ArrowUp className="w-4 h-4 text-yellow-500" />
+              <div className='flex items-start w-full border-l-[3px] pl-3 border-red-500 flex-col gap-5'>
+                <div className="flex justify-between w-full items-center">
+                  <p>Rays Birthday</p>
+                  <ArrowDown className="w-4 h-4 text-green-500" />
+                </div>
+                <div className="flex justify-between w-full items-center">
+                  <span>Today at 10:00 AM</span>
+                  <div className="flex items-center gap-1 bg-gray-600 p-2 rounded-lg">
+                    <span className='text-white text-xs'>4h</span>
+                    <CiTimer className="w-4 h-4 text-white" />
+                  </div>
+                </div>
               </div>
-              <div className="flex justify-between items-center">
-                <p>Anna`&apos;`s Birthday</p>
-                <ArrowDown className="w-4 h-4 text-green-500" />
+              <div className='flex items-start w-full border-l-[3px] pl-3 border-red-500 flex-col gap-5'>
+                <div className="flex justify-between w-full items-center">
+                  <p>Annas Birthday</p>
+                  <ArrowDown className="w-4 h-4 text-green-500" />
+                </div>
+                <div className="flex justify-between w-full items-center">
+                  <span>Today at 10:00 AM</span>
+                  <div className="flex items-center gap-1 bg-gray-600 p-2 rounded-lg">
+                    <span className='text-white text-xs'>4h</span>
+                    <CiTimer className="w-4 h-4 text-white" />
+                  </div>
+                </div>
               </div>
-              <div className="flex justify-between items-center">
-                <p>Ray`&apos;`s Birthday</p>
-                <ArrowDown className="w-4 h-4 text-green-500" />
+              <div className='flex items-start w-full border-l-[3px] pl-3 border-red-500 flex-col gap-5'>
+                <div className="flex justify-between w-full items-center">
+                  <p className='w-[70%]'>Presentation of the new department</p>
+                  <ArrowUp className="w-4 h-4 text-yellow-500" />
+                </div>
+                <div className="flex justify-between w-full items-center">
+                  <span>Today at 10:00 AM</span>
+                  <div className="flex items-center gap-1 bg-gray-600 p-2 rounded-lg">
+                    <span className='text-white text-xs'>4h</span>
+                    <CiTimer className="w-4 h-4 text-white" />
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -119,17 +156,35 @@ export default function Dashboard() {
               <a className="text-blue-600 text-sm font-medium" href="#">View more</a>
             </div>
             <div className="space-y-3 text-sm">
-              <div>
-                <p className="font-medium">Oscar Holloway</p>
-                <p>Updated the status of Mind Map task to In Progress</p>
+              <div className='flex flex-col items-start gap-2'>
+                <div className="flex items-center gap-2">
+                  <Image src="/avatars/user8.png" width={20} height={20} alt="" className='w-6 h-6 rounded-full' />
+                  <div className='flex items-start gap-1 flex-col'>
+                    <p className="font-medium">Eric Nathan</p>
+                    <span className="text-xs text-gray-400">Front-end Developer</span>
+                  </div>
+                </div>
+                <p className='bg-blue-50 p-3 rounded-lg'>Updated the status of Mind Map task to In Progress</p>
               </div>
-              <div>
-                <p className="font-medium">Oscar Holloway</p>
-                <p>Attached files to the task</p>
+              <div className='flex flex-col items-start gap-2'>
+                <div className="flex items-center gap-2">
+                  <Image src="/avatars/user8.png" width={20} height={20} alt="" className='w-6 h-6 rounded-full' />
+                  <div className='flex items-start gap-1 flex-col'>
+                    <p className="font-medium">Emily Tyler</p>
+                    <span className="text-xs text-gray-400">Front-end Developer</span>
+                  </div>
+                </div>
+                <p className='bg-blue-50 p-3 rounded-lg'>Updated the status of Mind Map task to In Progress</p>
               </div>
-              <div>
-                <p className="font-medium">Emily Tyler</p>
-                <p>Updated the status of Mind Map task to In Progress</p>
+              <div className='flex flex-col items-start gap-2'>
+                <div className="flex items-center gap-2">
+                  <Image src="/avatars/user8.png" width={20} height={20} alt="" className='w-6 h-6 rounded-full' />
+                  <div className='flex items-start gap-1 flex-col'>
+                    <p className="font-medium">Oscar Holloway</p>
+                    <span className="text-xs text-gray-400">Front-end Developer</span>
+                  </div>
+                </div>
+                <p className='bg-blue-50 p-3 rounded-lg'>Updated the status of Mind Map task to In Progress</p>
               </div>
             </div>
           </section>

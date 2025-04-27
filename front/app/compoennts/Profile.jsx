@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { CiCalendar } from 'react-icons/ci';
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState('Projects');
@@ -127,19 +128,29 @@ const Profile = () => {
         {activeTab === 'Projects' && (
           <div className="grid gap-4">
             {filteredProjects.map((project) => (
-              <Card key={project.id} className="p-4 rounded-xl flex justify-between items-center">
-                <div>
+              <div key={project.id} className="bg-blue-50 rounded-lg p-4 flex justify-between items-center w-full h-auto">
+                <div className='w-[50%] border-r border-gray-300 h-auto'>
                   <p className="text-sm text-gray-400">{project.id}</p>
-                  <h4 className="font-semibold text-lg">{project.name}</h4>
-                  <p className="text-sm text-gray-500">Created {project.created}</p>
+                  <p className="font-semibold">{project.name}</p>
+                  <div className='pt-2 pr-4 flex items-center justify-between w-full'>
+                    <div className="text-xs text-gray-500 flex items-center gap-1">
+                      <CiCalendar className="w-4 h-4" />
+                      <span>Created {project.created}</span>
+                    </div>
+                    <p className={`font-semibold ${project.priorityColor}`}>{project.priority}</p>
+                  </div>
                 </div>
-                <div className="text-right">
-                  <p className={`font-semibold ${project.priorityColor}`}>{project.priority}</p>
-                  <p className="text-sm mt-2">All tasks: {project.totalTasks}</p>
-                  <p className="text-sm">Active tasks: {project.activeTasks}</p>
-                  <p className="text-sm mt-2">Assignees: +{project.assignees}</p>
+                <div className="w-[50%] pl-3">
+                  <p className="text-base font-semibold text-gray-600">Project Data</p>
+                  <div className='flex flex-col md:flex-row items-center gap-2 pt-2 w-full justify-between'>
+                    <p className="text-xs flex items-start flex-col gap-1 text-gray-400">All tasks: <span className='text-black'>{project.totalTasks}</span></p>
+                    <p className="text-xs flex items-start flex-col gap-1 text-gray-400">Active tasks: <span className='text-black'>{project.activeTasks}</span></p>
+                    <p className="text-xs flex items-start flex-col gap-1 text-gray-400">
+                      Assignees: <span className='text-black'>+{project.assignees}</span>
+                    </p>
+                  </div>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
         )}

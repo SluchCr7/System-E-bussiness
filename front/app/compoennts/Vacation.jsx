@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const vacationData = [
   {
@@ -96,22 +97,31 @@ export default function VacationDashboard() {
 
       <div className="space-y-4">
         {vacationData.map((emp, idx) => (
-          <Card key={idx} className="p-4 flex justify-between items-center">
-            <div>
-              <p className="font-medium text-md">{emp.name}</p>
-              <p className="text-gray-500 text-sm">{emp.email}</p>
+          <Card key={idx} className="p-6 flex justify-between items-center">
+            <div className="flex items-center gap-2">
+              <Image
+                src="/icons/avatar.png"
+                alt="avatar"
+                width={40}  
+                height={40}
+                className="w-10 h-10 rounded-full object-cover"
+              />
+              <div className="flex items-start gap-1 flex-col">
+                <p className="font-medium text-md">{emp.name}</p>
+                <p className="text-gray-500 text-sm">{emp.email}</p>
+              </div>
             </div>
             <div className="flex space-x-12 text-center">
               <div className="flex items-start flex-col gap-1">
-                <p className="text-sm text-gray-400">Vacations</p>
+                <p className="text-xs text-gray-400">Vacations</p>
                 <p className="text-lg font-semibold">{emp.vacations}</p>
               </div>
               <div className="flex items-start flex-col gap-1">
-                <p className="text-sm text-gray-400">Sick Leave</p>
+                <p className="text-xs text-gray-400">Sick Leave</p>
                 <p className="text-lg font-semibold">{emp.sickLeave}</p>
               </div>
               <div className="flex items-start flex-col gap-1">
-                <p className="text-sm text-gray-400">Work remotely</p>
+                <p className="text-xs text-gray-400">Work remotely</p>
                 <p className="text-lg font-semibold">{emp.workRemotely}</p>
               </div>
             </div>
