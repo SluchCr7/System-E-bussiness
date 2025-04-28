@@ -9,7 +9,7 @@ import Calender from './compoennts/Calender'
 import Profile from "./compoennts/Profile";
 import EmployeeList from './compoennts/Employees'
 import  VacationDashboard from './compoennts/Vacation'
-import Notifications from "./compoennts/notificationMenu";
+import Notifications from "./compoennts/NotificationMenu";
 export default function Home() {
   const [active, setActive] = useState('Dashboard');
   const [showNotifications , setShowNotifications] = useState(false)
