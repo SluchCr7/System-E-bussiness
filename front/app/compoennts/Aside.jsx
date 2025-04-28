@@ -14,7 +14,7 @@ import Image from 'next/image';
 
 const navItems = [
   { name: 'Dashboard', icon: <GoHome className="w-5 h-5" />, href: '/' },
-  // { name: 'Projects', icon: <CiFolderOn className="w-5 h-5" />, href: '/projects' },
+  { name: 'Projects', icon: <CiFolderOn className="w-5 h-5" />, href: '/projects' },
   { name: 'Calendar', icon: <CiCalendar className="w-5 h-5" />, href: '/calendar' },
   { name: 'Vacations', icon: <CiSun className="w-5 h-5" />, href: '/vacations' },
   { name: 'Employees', icon: <CiUser className="w-5 h-5" />, href: '/employees' },

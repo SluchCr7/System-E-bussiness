@@ -36,7 +36,7 @@ export default function Notifications({showNotifications , setShowNotifications}
       {/* Header */}
       <div className="flex justify-between items-center border-b pb-3 mb-3">
         <h2 className="text-lg font-semibold">Notifications</h2>
-        <button onClick={clearNotifications} className="text-gray-400 hover:text-gray-600 transition">
+        <button onClick={()=> setShowNotifications(false)} className="text-gray-400 hover:text-gray-600 transition">
           <FiX size={22} />
         </button>
       </div>

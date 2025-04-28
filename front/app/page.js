@@ -10,6 +10,7 @@ import Profile from "./compoennts/Profile";
 import EmployeeList from './compoennts/Employees'
 import  VacationDashboard from './compoennts/Vacation'
 import Notifications from "./compoennts/NotificationMenu";
+import ProjectsDashboard from "./compoennts/Projects";
 export default function Home() {
   const [active, setActive] = useState('Dashboard');
   const [showNotifications , setShowNotifications] = useState(false)
@@ -24,10 +25,11 @@ export default function Home() {
         <Nav setShowNotifications={setShowNotifications} showNotifications={showNotifications} />
         {
           active === 'Dashboard' ? <Dashboard />:
+          active === "Projects" ? <ProjectsDashboard/> :
           active === "Calendar" ? <Calender/> : 
           active === "Info Portal" ? <Profile/> :
           active === "Employees" ? <EmployeeList/>  : 
-          active === "Vacations" ? <VacationDashboard/> : null
+          active === "Vacations" ? <VacationDashboard/> :  null
         }
       </div>
     </div>
