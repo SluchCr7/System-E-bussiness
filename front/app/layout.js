@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 import { JetBrains_Mono } from "next/font/google";
+import { AuthContextProvider } from "./Context/AuthContext";
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"]
@@ -20,7 +21,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${jetBrainsMono.className} antialiased`}
       >
-        {children}
+        <AuthContextProvider>
+          {children}
+        </AuthContextProvider>
       </body>
     </html>
   );
