@@ -6,6 +6,7 @@ import Image from "next/image";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import AddEmployeeModal from "./AddEmployee";
+import { useEmploy } from "../Context/EmployContext";
 
 const employees = [
   {
@@ -79,7 +80,7 @@ export default function EmployeeList() {
   const [selectedEmployee, setSelectedEmployee] = useState(null)
   const [showModal, setShowModal] = useState(false);
   const totalPages = Math.ceil(employees.length / PER_PAGE);
-
+  const {employees} = useEmploy()
   const currentEmployees = employees.slice(
     page * PER_PAGE,
     page * PER_PAGE + PER_PAGE
@@ -126,11 +127,11 @@ export default function EmployeeList() {
                 <div className="flex w-full items-center gap-4">
                   <img
                     src="/assets/images/emp-1.png"
-                    alt={emp.name}
+                    alt={emp.fullName}
                     className="w-14 h-14 rounded-full object-cover"
                   />
                   <div>
-                    <p className="font-semibold text-gray-800">{emp.name}</p>
+                    <p className="font-semibold text-gray-800">{emp.fullName}</p>
                     <p className="text-sm text-gray-500">{emp.email}</p>
                   </div>
                 </div>
@@ -139,28 +140,28 @@ export default function EmployeeList() {
                 <div className="flex items-center justify-between w-[100%] gap-5">
                   {/* Gender */}
                   <div className="flex flex-col w-full items-start">
-                    <p className="text-xs text-gray-400 mb-1">Gender</p>
-                    <p className="text-sm font-medium text-gray-700">{emp.gender}</p>
+                    <p className="text-xs text-gray-400 mb-1">address</p>
+                    <p className="text-sm font-medium text-gray-700">{emp.address}</p>
                   </div>
 
                   {/* Birthday */}
                   <div className="flex flex-col w-full items-start">
-                    <p className="text-xs text-gray-400 mb-1">Birthday</p>
-                    <p className="text-sm font-medium text-gray-700">{emp.birthday}</p>
+                    <p className="text-xs text-gray-400 mb-1">phoneNumber</p>
+                    <p className="text-sm font-medium text-gray-700">{emp.phoneNumber}</p>
                   </div>
 
                   {/* Age */}
                   <div className="flex flex-col w-full items-start">
-                    <p className="text-xs text-gray-400 mb-1">Age</p>
-                    <p className="text-sm font-medium text-gray-700">{emp.age}</p>
+                    <p className="text-xs text-gray-400 mb-1">netSalary</p>
+                    <p className="text-sm font-medium text-gray-700">{emp.netSalary}</p>
                   </div>
                 </div>
                 {/* Position */}
                 <div className="flex flex-col w-full items-start">
-                  <p className="text-xs text-gray-400 mb-1">Position</p>
+                  <p className="text-xs text-gray-400 mb-1">jobTitle</p>
                   <div className="flex items-center justify-center gap-2">
-                    <span className="text-xs font-medium text-gray-700">{emp.position}</span>
-                    <span className="px-2 py-0.5 text-xs bg-gray-100 rounded">{emp.level}</span>
+                    <span className="text-xs font-medium text-gray-700">{emp.jobTitle}</span>
+                    {/* <span className="px-2 py-0.5 text-xs bg-gray-100 rounded">{emp.level}</span> */}
                   </div>
                 </div>
 
@@ -181,16 +182,16 @@ export default function EmployeeList() {
               <div className="flex flex-col items-center gap-2 bg-blue-50 w-full p-3 rounded-lg">
                 <Image
                   src={"/assets/images/emp-1.png"}
-                  alt={emp.name}
+                  alt={emp.fullName}
                   width={64}
                   height={64}
                   className="w-16 h-16 rounded-full object-cover mb-3"
                 />
-                <h3 className="text-md font-semibold">{emp.name}</h3>
-                <p className="text-sm text-gray-500">{emp.position}</p>
-                <span className="mt-2 inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">
+                <h3 className="text-md font-semibold">{emp.fullName}</h3>
+                <p className="text-sm text-gray-500">{emp.jobTitle}</p>
+                {/* <span className="mt-2 inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">
                   {emp.level}
-                </span>
+                </span> */}
               </div>
 
               <div className="flex justify-around w-full mt-4 text-sm text-gray-600">
