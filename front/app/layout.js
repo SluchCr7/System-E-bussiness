@@ -3,10 +3,11 @@ import "./globals.css";
 
 import { JetBrains_Mono } from "next/font/google";
 import { AuthContextProvider } from "./Context/AuthContext";
+import { EmployContextProvider } from "./Context/EmployContext";
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"]
-  , weight: ["100", "200", "300", "400", "500", "600"]
+  , weight: ["100", "200", "300", "400"]
   , style: ["normal", "italic"]
 })
 
@@ -22,7 +23,9 @@ export default function RootLayout({ children }) {
         className={`${jetBrainsMono.className} antialiased`}
       >
         <AuthContextProvider>
-          {children}
+          <EmployContextProvider>
+            {children}
+          </EmployContextProvider>
         </AuthContextProvider>
       </body>
     </html>

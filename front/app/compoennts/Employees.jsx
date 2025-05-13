@@ -79,8 +79,8 @@ export default function EmployeeList() {
   const [activeView, setActiveView] = useState("List")
   const [selectedEmployee, setSelectedEmployee] = useState(null)
   const [showModal, setShowModal] = useState(false);
-  const totalPages = Math.ceil(employees.length / PER_PAGE);
   const {employees} = useEmploy()
+  const totalPages = Math.ceil(employees.length / PER_PAGE);
   const currentEmployees = employees.slice(
     page * PER_PAGE,
     page * PER_PAGE + PER_PAGE
@@ -140,25 +140,25 @@ export default function EmployeeList() {
                 <div className="flex items-center justify-between w-[100%] gap-5">
                   {/* Gender */}
                   <div className="flex flex-col w-full items-start">
-                    <p className="text-xs text-gray-400 mb-1">address</p>
+                    <p className="text-xs text-gray-400 mb-1">Address</p>
                     <p className="text-sm font-medium text-gray-700">{emp.address}</p>
                   </div>
 
                   {/* Birthday */}
                   <div className="flex flex-col w-full items-start">
-                    <p className="text-xs text-gray-400 mb-1">phoneNumber</p>
+                    <p className="text-xs text-gray-400 mb-1">Phone</p>
                     <p className="text-sm font-medium text-gray-700">{emp.phoneNumber}</p>
                   </div>
 
                   {/* Age */}
                   <div className="flex flex-col w-full items-start">
-                    <p className="text-xs text-gray-400 mb-1">netSalary</p>
+                    <p className="text-xs text-gray-400 mb-1">NetSalary</p>
                     <p className="text-sm font-medium text-gray-700">{emp.netSalary}</p>
                   </div>
                 </div>
                 {/* Position */}
                 <div className="flex flex-col w-full items-start">
-                  <p className="text-xs text-gray-400 mb-1">jobTitle</p>
+                  <p className="text-xs text-gray-400 mb-1">Job</p>
                   <div className="flex items-center justify-center gap-2">
                     <span className="text-xs font-medium text-gray-700">{emp.jobTitle}</span>
                     {/* <span className="px-2 py-0.5 text-xs bg-gray-100 rounded">{emp.level}</span> */}
