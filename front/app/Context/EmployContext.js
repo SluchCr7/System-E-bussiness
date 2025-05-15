@@ -8,11 +8,11 @@ export const EmployContextProvider = ({ children }) => {
 
     useEffect(() => {
         axios.get('http://crmworkspace.runasp.net/api/Employee').then(res => {
-            setEmployees(res.data)
+            setEmployees(res.data);
         }).catch(err => {
-            console.log(err)
-        })
-    }, [])
+            console.log(err);
+        });
+    }, [employees]);
     return (
         <EmployContext.Provider
             value={{

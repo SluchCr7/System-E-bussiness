@@ -9,7 +9,6 @@ export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [userToken, setUserToken] = useState(null)
     const [isLogin, setIsLogin] = useState(false)
-    const signUp = () => { }
     const login = (username , password) => { 
         axios.post('http://crmworkspace.runasp.net/api/auth/login' , {username , password}).then(res => {
             // setUser(res.data)
@@ -49,22 +48,21 @@ export const AuthContextProvider = ({ children }) => {
             .catch(err => toast.error("Logout Failed"))
     }
     // Create New User Function
-    const registerNewUser = (Name, Email, Password) => {
-        axios.post(`${process.env.NEXT_PUBLIC_BACK_URL}/api/auth/register` , {Name , Email , Password})
-            .then(res => {
-                swal("Good job!", res.data.message, "success");
-                setTimeout(() => {
-                    window.location.href = "/Pages/Login"
-                },2000)
-            })
-            .catch((err) => {
-                swal("Oops!", err.response.data.message, "error");
-            })
-    }
+    // const registerNewUser = (Name, Email, Password) => {
+    //     axios.post(`${process.env.NEXT_PUBLIC_BACK_URL}/api/auth/register` , {Name , Email , Password})
+    //         .then(res => {
+    //             swal("Good job!", res.data.message, "success");
+    //             setTimeout(() => {
+    //                 window.location.href = "/Pages/Login"
+    //             },2000)
+    //         })
+    //         .catch((err) => {
+    //             swal("Oops!", err.response.data.message, "error");
+    //         })
+    // }
     return (
         <AuthContext.Provider value={{
             login,
-            signUp,
             userToken,
             isLogin,
             user,
