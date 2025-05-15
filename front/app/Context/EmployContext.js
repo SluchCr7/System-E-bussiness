@@ -7,7 +7,7 @@ export const EmployContextProvider = ({ children }) => {
     const [employees, setEmployees] = useState([])
 
     useEffect(() => {
-        axios.get('http://crmworkspace.runasp.net/api/Employee').then(res => {
+        axios.get(`https://crmworkspace.runasp.net/api/Employee`).then(res => {
             setEmployees(res.data);
         }).catch(err => {
             console.log(err);

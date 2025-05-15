@@ -10,7 +10,7 @@ export const AuthContextProvider = ({ children }) => {
     const [userToken, setUserToken] = useState(null)
     const [isLogin, setIsLogin] = useState(false)
     const login = (username , password) => { 
-        axios.post('http://crmworkspace.runasp.net/api/auth/login' , {username , password}).then(res => {
+        axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/login` , {username , password}).then(res => {
             // setUser(res.data)
             setUserToken(res.data.token)
             setIsLogin(true)
