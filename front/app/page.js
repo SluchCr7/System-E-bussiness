@@ -24,7 +24,6 @@ export default function Home() {
     const token = localStorage.getItem('token');
     setIsLogin(!!token); // Convert to boolean
   }, []);
-
   return (
     <>
       {isLogin ? (
