@@ -53,7 +53,7 @@ export default function Dashboard() {
             {users.map((user, i) => (
               <div key={i} className="bg-blue-50 p-4 rounded-xl flex flex-col items-center text-center">
                 <div className="w-16 h-16 mb-2">
-                  <Image src={user.img} alt={user.name} width={64} height={64} className="rounded-full" />
+                  <Image src={user.img } alt={user.name} width={64} height={64} className="rounded-full" />
                 </div>
                 <p className="font-medium text-sm">{user.name}</p>
                 <p className="text-xs text-gray-500">{user.role}</p>

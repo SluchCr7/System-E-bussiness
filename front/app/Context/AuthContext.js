@@ -9,7 +9,7 @@ export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [userToken, setUserToken] = useState(null)
     const [isLogin, setIsLogin] = useState(false)
-const login = async (username, password) => {
+    const login = async (username, password) => {
         try {
           // Step 1: Login
           const loginRes = await axios.post(
