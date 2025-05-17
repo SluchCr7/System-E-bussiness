@@ -35,8 +35,6 @@ export const AuthContextProvider = ({ children }) => {
           setUser(userRes.data);
           localStorage.setItem('User', JSON.stringify(userRes.data));
       
-          console.log(userRes.data);
-      
           // Step 3: Redirect
           window.location.href = '/';
         } catch (err) {
@@ -87,7 +85,7 @@ export const AuthContextProvider = ({ children }) => {
         if (user) {
             setUser(JSON.parse(user))
         }
-    }, [user])
+    }, [])
     return (
         <AuthContext.Provider value={{
             login,

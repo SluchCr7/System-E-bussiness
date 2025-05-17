@@ -12,7 +12,7 @@ export const EmployContextProvider = ({ children }) => {
         }).catch(err => {
             console.log(err);
         });
-    }, [employees]);
+    }, []);
     return (
         <EmployContext.Provider
             value={{
