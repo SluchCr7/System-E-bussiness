@@ -1,24 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CiCalendar } from 'react-icons/ci';
+import { useAuth } from '../Context/AuthContext';
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState('Projects');
   const [filter, setFilter] = useState('Current Projects');
-
-  const user = {
-    name: 'Evan Yates',
-    role: 'UI/UX Designer',
-    company: 'Cadabra',
-    location: 'NYC, New York, USA',
-    birthday: 'May 19, 1996',
-    email: 'evanyates@gmail.com',
-    phone: '+1 675 346 23-10',
-    skype: 'Evan 2256',
-  };
-
+  const {user} = useAuth()
+  // const user = {
+  //   name: 'Evan Yates',
+  //   role: 'UI/UX Designer',
+  //   company: 'Cadabra',
+  //   location: 'NYC, New York, USA',
+  //   birthday: 'May 19, 1996',
+  //   email: 'evanyates@gmail.com',
+  //   phone: '+1 675 346 23-10',
+  //   skype: 'Evan 2256',
+  // };
+  useEffect(() => {
+    console.log(user)
+  },[user])
   const allProjects = [
     {
       id: 'PN0001265',
@@ -72,8 +75,8 @@ const Profile = () => {
             <AvatarImage src="https://via.placeholder.com/96" />
             <AvatarFallback>EY</AvatarFallback>
           </Avatar>
-          <h2 className="text-xl font-bold">{user.name}</h2>
-          <p className="text-gray-500">{user.role}</p>
+          <h2 className="text-xl font-bold">{user.fullName}</h2>
+          <p className="text-gray-500">{user.jopTitle}</p>
         </div>
 
         <section className="mt-6 border-t border-gray-300 pt-2 w-full">
@@ -81,11 +84,11 @@ const Profile = () => {
           <ul className="text-sm space-y-1 flex items-start flex-col gap-4 w-full">
                       <li className='flex items-start flex-col gap-2 w-full'>
                           <strong className='text-sm text-gray-400'>Position:</strong>
-                          <div className='border border-gray-100 p-3 w-full rounded-lg'>{user.role}</div>
+                          <div className='border border-gray-100 p-3 w-full rounded-lg'>{user.jopTitle}</div>
                       </li>
-            <li className='flex items-start flex-col gap-2 w-full'><strong className='text-sm text-gray-400'>Company:</strong><div className='border border-gray-100 p-3 w-full rounded-lg'>{user.company}</div> </li>
-            <li className='flex items-start flex-col gap-2 w-full'><strong className='text-sm text-gray-400'>Location:</strong><div className='border border-gray-100 p-3 w-full rounded-lg'>{user.location}</div> </li>
-            <li className='flex items-start flex-col gap-2 w-full'><strong className='text-sm text-gray-400'>Birthday:</strong><div className='border border-gray-100 p-3 w-full rounded-lg'>{user.birthday}</div> </li>
+            <li className='flex items-start flex-col gap-2 w-full'><strong className='text-sm text-gray-400'>Company:</strong><div className='border border-gray-100 p-3 w-full rounded-lg'>{user?.company}</div> </li>
+            <li className='flex items-start flex-col gap-2 w-full'><strong className='text-sm text-gray-400'>Salary:</strong><div className='border border-gray-100 p-3 w-full rounded-lg'>{user.netSalary}</div> </li>
+            <li className='flex items-start flex-col gap-2 w-full'><strong className='text-sm text-gray-400'>Birthday:</strong><div className='border border-gray-100 p-3 w-full rounded-lg'>{user?.birthday}</div> </li>
           </ul>
         </section>
 
@@ -93,8 +96,8 @@ const Profile = () => {
           <h3 className="font-semibold mb-2">Contact Info</h3>
           <ul className="text-sm space-y-1 flex items-start flex-col gap-4 w-full">
             <li className='flex items-start flex-col gap-2 w-full'><strong className='text-sm text-gray-400'>Email:</strong> <div className='border border-gray-100 p-3 w-full rounded-lg'>{user.email}</div> </li>
-            <li className='flex items-start flex-col gap-2 w-full'><strong className='text-sm text-gray-400'>Phone:</strong> <div className='border border-gray-100 p-3 w-full rounded-lg'>{user.phone}</div></li>
-            <li className='flex items-start flex-col gap-2 w-full'><strong className='text-sm text-gray-400'>Skype:</strong> <div className='border border-gray-100 p-3 w-full rounded-lg'>{user.skype}</div></li>
+            <li className='flex items-start flex-col gap-2 w-full'><strong className='text-sm text-gray-400'>Phone:</strong> <div className='border border-gray-100 p-3 w-full rounded-lg'>{user.phoneNumber}</div></li>
+            <li className='flex items-start flex-col gap-2 w-full'><strong className='text-sm text-gray-400'>Skype:</strong> <div className='border border-gray-100 p-3 w-full rounded-lg'>{user.url}</div></li>
           </ul>
         </section>
       </aside>

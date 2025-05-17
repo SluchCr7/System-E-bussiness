@@ -9,25 +9,47 @@ export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [userToken, setUserToken] = useState(null)
     const [isLogin, setIsLogin] = useState(false)
-    const login = (username , password) => { 
-        axios.post('http://crmworkspace.runasp.net/api/auth/login' , {username , password}).then(res => {
-            // setUser(res.data)
-            setUserToken(res.data.token)
-            setIsLogin(true)
-            localStorage.setItem('token', res.data.token)
-            console.log(res.data)
-            window.location.href = "/"
-        }).catch(err => {
-            console.log(err)
-        })
-    }
+    const login = async (username, password) => {
+        try {
+          // Step 1: Login
+          const loginRes = await axios.post(
+            'https://crmworkspace.runasp.net/api/auth/login',
+            { username, password }
+          );
+      
+          const token = loginRes.data.token;
+          setUserToken(token);
+          setIsLogin(true);
+          localStorage.setItem('token', token);
+      
+          // Step 2: Fetch user info using token
+          const userRes = await axios.get(
+            'https://crmworkspace.runasp.net/api/Employee/GetByUser',
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+      
+          setUser(userRes.data);
+          localStorage.setItem('User', JSON.stringify(userRes.data));
+      
+          console.log(userRes.data);
+      
+          // Step 3: Redirect
+          window.location.href = '/';
+        } catch (err) {
+          console.error('Login error:', err);
+        }
+    };
     useEffect(() => {
         const token = localStorage.getItem('token')
         if (token) {
           setUserToken(token)
           setIsLogin(true)
         }
-      }, [])
+    }, [])
     // Logout Function
     const Logout = () => {
         swal({
@@ -37,7 +59,7 @@ export const AuthContextProvider = ({ children }) => {
             buttons: true,
             dangerMode: true,
         })
-            .then(willLogout => {    
+            .then(willLogout => {
                 if (willLogout) {
                     setIsLogin(false)
                     setUserToken(null)
@@ -47,19 +69,25 @@ export const AuthContextProvider = ({ children }) => {
             })
             .catch(err => toast.error("Logout Failed"))
     }
-    // Create New User Function
-    // const registerNewUser = (Name, Email, Password) => {
-    //     axios.post(`${process.env.NEXT_PUBLIC_BACK_URL}/api/auth/register` , {Name , Email , Password})
-    //         .then(res => {
-    //             swal("Good job!", res.data.message, "success");
-    //             setTimeout(() => {
-    //                 window.location.href = "/Pages/Login"
-    //             },2000)
+    // useEffect(() => {
+    //     fetch("http://crmworkspace.runasp.net/api/Employee/GetByUser", {
+    //         method: "GET",
+    //         headers: {
+    //             "Authorization": `Bearer ${localStorage.getItem("token")}`, // استخدام التوكن من  المحلي
+    //             "Content-Type": "application/json"
+    //         }
+    //         }).then((res) => {
+    //             setUser(res.data)
+    //         }).catch((err) => {
+    //             console.log(err)
     //         })
-    //         .catch((err) => {
-    //             swal("Oops!", err.response.data.message, "error");
-    //         })
-    // }
+    // }, []);
+    useEffect(() => {
+        const user = localStorage.getItem('User')
+        if (user) {
+            setUser(JSON.parse(user))
+        }
+    }, [user])
     return (
         <AuthContext.Provider value={{
             login,
