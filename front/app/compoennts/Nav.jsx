@@ -15,7 +15,7 @@ const Nav = ({showNotifications , setShowNotifications}) => {
           <div className='flex items-center gap-4'> 
               <IoIosNotificationsOutline onClick={() => setShowNotifications(!showNotifications)} className='text-2xl' />
               <div className='bg-white rounded-lg flex items-center gap-1 p-2'>
-                  <Image src="/design/Home.jpg" width={200} height={200} alt="avatar" className='w-6 h-6 rounded-full' />
+                  <Image src={user?.url} width={200} height={200} alt="avatar" className='w-6 h-6 rounded-full' />
                   <span className='text-sm text-black'>{user?.fullName}</span>
               </div>
           </div>
