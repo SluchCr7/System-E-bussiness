@@ -67,19 +67,19 @@ export const AuthContextProvider = ({ children }) => {
             })
             .catch(err => toast.error("Logout Failed"))
     }
-    // useEffect(() => {
-    //     fetch("http://crmworkspace.runasp.net/api/Employee/GetByUser", {
-    //         method: "GET",
-    //         headers: {
-    //             "Authorization": `Bearer ${localStorage.getItem("token")}`, // استخدام التوكن من  المحلي
-    //             "Content-Type": "application/json"
-    //         }
-    //         }).then((res) => {
-    //             setUser(res.data)
-    //         }).catch((err) => {
-    //             console.log(err)
-    //         })
-    // }, []);
+     useEffect(() => {
+         fetch("http://crmworkspace.runasp.net/api/Employee/GetByUser", {
+             method: "GET",
+             headers: {
+                 "Authorization": `Bearer ${localStorage.getItem("token")}`, // استخدام التوكن من  المحلي
+                 "Content-Type": "application/json"
+             }
+             }).then((res) => {
+                 setUser(res.data)
+             }).catch((err) => {
+                 console.log(err)
+             })
+     }, []);
     useEffect(() => {
         const user = localStorage.getItem('User')
         if (user) {

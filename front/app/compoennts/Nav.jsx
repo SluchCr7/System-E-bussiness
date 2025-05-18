@@ -19,9 +19,10 @@ const Nav = ({showNotifications , setShowNotifications}) => {
                 src={`https://crmworkspace.runasp.net${user?.url}`
                 //     : '/default-avatar.png' // use a local placeholder image
                 }
-                width={100}
-                height={100}
+                width={40}
+                height={40}
                 alt="User image"
+                className="rounded-full"
               />              
                   <span className='text-sm text-black'>{user?.fullName}</span>
               </div>
