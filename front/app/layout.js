@@ -4,6 +4,7 @@ import "./globals.css";
 import { JetBrains_Mono } from "next/font/google";
 import { AuthContextProvider } from "./Context/AuthContext";
 import { EmployContextProvider } from "./Context/EmployContext";
+import { DashboardContextProvider } from "./Context/DashboardContext";
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"]
@@ -24,7 +25,9 @@ export default function RootLayout({ children }) {
       >
         <AuthContextProvider>
           <EmployContextProvider>
-            {children}
+            <DashboardContextProvider>
+              {children}
+            </DashboardContextProvider>
           </EmployContextProvider>
         </AuthContextProvider>
       </body>
