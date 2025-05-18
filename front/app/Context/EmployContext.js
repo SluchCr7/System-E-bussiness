@@ -13,19 +13,20 @@ export const EmployContextProvider = ({ children }) => {
             console.log(err);
         });
     }, []);
-    const addEmployee = async (FullName, Email, PhoneNumber, JobTitle, DepartmentId, ImageFile) => {
+    const addEmployee = async (file,FullName, Email, PhoneNumber, Address,JobTitle,  DepartmentId) => {
         try {
           const formData = new FormData();
+          
+          if (file) {
+            formData.append('file', file); // optional
+          }
       
           formData.append('FullName', FullName?.trim());
           formData.append('Email', Email?.trim());
           formData.append('PhoneNumber', PhoneNumber?.trim());
+          formData.append('Address', Address?.trim());
           formData.append('JobTitle', JobTitle?.trim());
           formData.append('DepartmentId', DepartmentId); // ensure this is correct type
-      
-          if (ImageFile) {
-            formData.append('ImageFile', ImageFile); // optional
-          }
       
           for (let pair of formData.entries()) {
             console.log(pair[0] + ': ' + pair[1]);

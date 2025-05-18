@@ -9,18 +9,20 @@ export default function AddEmployeeModal({ showModal, setShowModal }) {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [job, setJob] = useState('');
+  const [file, setfile] = useState(null);
+  const [Address, setAddress] = useState('');
   const [department, setDepartment] = useState(1);
   const { addEmployee } = useEmploy();
 
   const departments = ['IT', 'IS', 'CS', 'AI'];
 
   const handleSubmit = () => {
-    if (!email || !name || !phone || !job) {
+    if (!email || !name || !phone || !job  ) {
       alert('Please fill in all fields');
       return;
     }
 
-    addEmployee(name, email, phone, job, department)
+    addEmployee( file ,name, email, phone, Address,job, department );
 
 
     // Clear form and close modal
@@ -63,6 +65,14 @@ export default function AddEmployeeModal({ showModal, setShowModal }) {
         {/* Form */}
         <div className="space-y-4">
           <input
+            type="file"
+            onChange={(e) => setfile(e.target.files[0])}
+            placeholder="Upload Image"
+            className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+
+
+          <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -85,6 +95,17 @@ export default function AddEmployeeModal({ showModal, setShowModal }) {
             placeholder="Phone Number"
             className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
+          <input
+            type="tel"
+            value={Address}
+            onChange={(e) => setAddress(e.target.value)}
+            placeholder="Address"
+            className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          
+
+
+
 
           <input
             type="text"
@@ -93,7 +114,7 @@ export default function AddEmployeeModal({ showModal, setShowModal }) {
             placeholder="Job Title"
             className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-
+        
           <select
             // value={department}
             // onChange={(e) => setDepartment(e.target.value)}
