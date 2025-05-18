@@ -126,7 +126,7 @@ export default function EmployeeList() {
                 {/* Profile Section */}
                 <div className="flex w-full items-center gap-4">
                   <img
-                    src="/assets/images/emp-1.png"
+                    src={`https://crmworkspace.runasp.net${emp?.url}`}
                     alt={emp.fullName}
                     className="w-14 h-14 rounded-full object-cover"
                   />
@@ -181,7 +181,7 @@ export default function EmployeeList() {
             >
               <div className="flex flex-col items-center gap-2 bg-blue-50 w-full p-3 rounded-lg">
                 <Image
-                  src={"/assets/images/emp-1.png"}
+                  src={`https://crmworkspace.runasp.net${emp?.url}`}
                   alt={emp.fullName}
                   width={64}
                   height={64}
