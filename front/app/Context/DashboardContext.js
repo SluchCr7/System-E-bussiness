@@ -27,7 +27,6 @@ export const DashboardContextProvider = ({ children }) => {
         }
         fetchData()
     }, [])
-
     return (
         <DashboardContext.Provider
             value={{
