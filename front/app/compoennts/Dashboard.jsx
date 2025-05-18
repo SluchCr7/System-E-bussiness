@@ -6,37 +6,37 @@ import { CiCalendar } from "react-icons/ci";
 import { CiTimer } from "react-icons/ci";
 import { useAuth } from '../Context/AuthContext';
 
-const users = [
-  { name: 'Shawn Stone', role: 'UI/UX Designer', level: 'Middle', img: '/avatars/user1.png' },
-  { name: 'Randy Delgado', role: 'UI/UX Designer', level: 'Junior', img: '/avatars/user2.png' },
-  { name: 'Emily Tyler', role: 'Copywriter', level: 'Middle', img: '/avatars/user3.png' },
-  { name: 'Louis Castro', role: 'Copywriter', level: 'Senior', img: '/avatars/user4.png' },
-  { name: 'Blake Silva', role: 'iOS Developer', level: 'Senior', img: '/avatars/user5.png' },
-  { name: 'Joel Phillips', role: 'UI/UX Designer', level: 'Middle', img: '/avatars/user6.png' },
-  { name: 'Wayne Marsh', role: 'Copywriter', level: 'Junior', img: '/avatars/user7.png' },
-  { name: 'Oscar Holloway', role: 'UI/UX Designer', level: 'Middle', img: '/avatars/user8.png' },
-];
+// const users = [
+//   { name: 'Shawn Stone', role: 'UI/UX Designer', level: 'Middle', img: '/avatars/user1.png' },
+//   { name: 'Randy Delgado', role: 'UI/UX Designer', level: 'Junior', img: '/avatars/user2.png' },
+//   { name: 'Emily Tyler', role: 'Copywriter', level: 'Middle', img: '/avatars/user3.png' },
+//   { name: 'Louis Castro', role: 'Copywriter', level: 'Senior', img: '/avatars/user4.png' },
+//   { name: 'Blake Silva', role: 'iOS Developer', level: 'Senior', img: '/avatars/user5.png' },
+//   { name: 'Joel Phillips', role: 'UI/UX Designer', level: 'Middle', img: '/avatars/user6.png' },
+//   { name: 'Wayne Marsh', role: 'Copywriter', level: 'Junior', img: '/avatars/user7.png' },
+//   { name: 'Oscar Holloway', role: 'UI/UX Designer', level: 'Middle', img: '/avatars/user8.png' },
+// ];
 
-const projects = [
-  {
-    title: 'Medical App (iOS native)',
-    date: 'Sep 12, 2020',
-    priority: 'Medium',
-    stats: { all: 34, active: 13, assignees: 5 },
-  },
-  {
-    title: 'Food Delivery Service',
-    date: 'Sep 10, 2020',
-    priority: 'Medium',
-    stats: { all: 50, active: 24, assignees: 3 },
-  },
-  {
-    title: 'Food Delivery Service',
-    date: 'May 28, 2020',
-    priority: 'Low',
-    stats: { all: 20, active: 5, assignees: 2 },
-  },
-];
+// const projects = [
+//   {
+//     title: 'Medical App (iOS native)',
+//     date: 'Sep 12, 2020',
+//     priority: 'Medium',
+//     stats: { all: 34, active: 13, assignees: 5 },
+//   },
+//   {
+//     title: 'Food Delivery Service',
+//     date: 'Sep 10, 2020',
+//     priority: 'Medium',
+//     stats: { all: 50, active: 24, assignees: 3 },
+//   },
+//   {
+//     title: 'Food Delivery Service',
+//     date: 'May 28, 2020',
+//     priority: 'Low',
+//     stats: { all: 20, active: 5, assignees: 2 },
+//   },
+// ];
 
 
 export default function Dashboard() {
