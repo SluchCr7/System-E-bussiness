@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Calendar, ArrowDown, ArrowUp, Users } from 'lucide-react';
 import { CiCalendar } from "react-icons/ci";
 import { CiTimer } from "react-icons/ci";
+import { useAuth } from '../Context/AuthContext';
 
 const users = [
   { name: 'Shawn Stone', role: 'UI/UX Designer', level: 'Middle', img: '/avatars/user1.png' },
@@ -39,6 +40,7 @@ const projects = [
 
 
 export default function Dashboard() {
+  const { employeesDash , events , projects } = useAuth()
   return (
     <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
       <h1 className="text-sm font-semibold text-gray-400">Welcome back, {user?.fullName}!</h1>
