@@ -4,8 +4,6 @@ import Image from 'next/image';
 import { Calendar, ArrowDown, ArrowUp, Users } from 'lucide-react';
 import { CiCalendar } from "react-icons/ci";
 import { CiTimer } from "react-icons/ci";
-import { useDashboard } from '../Context/DashboardContext';
-import { useEffect } from 'react';
 
 const users = [
   { name: 'Shawn Stone', role: 'UI/UX Designer', level: 'Middle', img: '/avatars/user1.png' },
@@ -39,12 +37,11 @@ const projects = [
   },
 ];
 
+
 export default function Dashboard() {
-  const {projects,employeesDash,events} = useDashboard()
-  useEffect(()=> console.log(employeesDash),[employeesDash])
   return (
     <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
-      <h1 className="text-sm font-semibold text-gray-400">Welcome back, Evan!</h1>
+      <h1 className="text-sm font-semibold text-gray-400">Welcome back, {user?.fullName}!</h1>
         <span className="text-2xl font-semibold">Dashboard</span>
       {/* Workload */}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
