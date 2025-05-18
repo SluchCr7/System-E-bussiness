@@ -72,7 +72,7 @@ const Profile = () => {
       <aside className="bg-white rounded-2xl shadow p-4 col-span-1">
         <div className="flex flex-col items-center text-center">
           <Avatar className="w-24 h-24 mb-4">
-            <AvatarImage src="https://via.placeholder.com/96" />
+            <AvatarImage src={`https://crmworkspace.runasp.net${user?.url}`} />
             <AvatarFallback>EY</AvatarFallback>
           </Avatar>
           <h2 className="text-xl font-bold">{user?.fullName}</h2>
@@ -84,7 +84,7 @@ const Profile = () => {
           <ul className="text-sm space-y-1 flex items-start flex-col gap-4 w-full">
                       <li className='flex items-start flex-col gap-2 w-full'>
                           <strong className='text-sm text-gray-400'>Position:</strong>
-                          <div className='border border-gray-100 p-3 w-full rounded-lg'>{user.jopTitle}</div>
+                          <div className='border border-gray-100 p-3 w-full rounded-lg'>{user.jobTitle}</div>
                       </li>
             <li className='flex items-start flex-col gap-2 w-full'><strong className='text-sm text-gray-400'>Company:</strong><div className='border border-gray-100 p-3 w-full rounded-lg'>{user?.company}</div> </li>
             <li className='flex items-start flex-col gap-2 w-full'><strong className='text-sm text-gray-400'>Salary:</strong><div className='border border-gray-100 p-3 w-full rounded-lg'>{user?.netSalary}</div> </li>

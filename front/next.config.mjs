@@ -1,7 +1,7 @@
-/* @type {import('next').NextConfig} */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['crmworkspace.runasp.net'],
+    domains: ['crmworkspace.runasp.net'], // اسم النطاق المسموح
   },
 };
 

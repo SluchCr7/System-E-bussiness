@@ -58,7 +58,7 @@ export default function Dashboard() {
             {employeesDash.map((user, i) => (
               <div key={i} className="bg-blue-50 p-4 rounded-xl flex flex-col items-center text-center">
                 <div className="w-16 h-16 mb-2">
-                  <Image src={"/images/JDJO"} alt={user.name} width={64} height={64} className="rounded-full" />
+                  <Image src={`https://crmworkspace.runasp.net${user?.url}`} alt={user.name} width={64} height={64} className="rounded-full" />
                 </div>
                 <p className="font-medium text-sm">{user.fullName}</p>
                 <p className="text-xs text-gray-500">{user.jobTitle}</p>
@@ -145,7 +145,7 @@ export default function Dashboard() {
             <div className="space-y-3 text-sm">
               <div className='flex flex-col items-start gap-2'>
                 <div className="flex items-center gap-2">
-                  <Image src="/avatars/user8.png" width={20} height={20} alt="" className='w-6 h-6 rounded-full' />
+                  <Image src={`https://crmworkspace.runasp.net${user?.url}`} width={20} height={20} alt="" className='w-6 h-6 rounded-full' />
                   <div className='flex items-start gap-1 flex-col'>
                     <p className="font-medium">Eric Nathan</p>
                     <span className="text-xs text-gray-400">Front-end Developer</span>
@@ -155,7 +155,7 @@ export default function Dashboard() {
               </div>
               <div className='flex flex-col items-start gap-2'>
                 <div className="flex items-center gap-2">
-                  <Image src="/avatars/user8.png" width={20} height={20} alt="" className='w-6 h-6 rounded-full' />
+                  <Image src={`https://crmworkspace.runasp.net${user?.url}`} width={20} height={20} alt="" className='w-6 h-6 rounded-full' />
                   <div className='flex items-start gap-1 flex-col'>
                     <p className="font-medium">Emily Tyler</p>
                     <span className="text-xs text-gray-400">Front-end Developer</span>
@@ -165,7 +165,7 @@ export default function Dashboard() {
               </div>
               <div className='flex flex-col items-start gap-2'>
                 <div className="flex items-center gap-2">
-                  <Image src="/avatars/user8.png" width={20} height={20} alt="" className='w-6 h-6 rounded-full' />
+                  <Image src={`https://crmworkspace.runasp.net${user?.url}`} width={20} height={20} alt="" className='w-6 h-6 rounded-full' />
                   <div className='flex items-start gap-1 flex-col'>
                     <p className="font-medium">Oscar Holloway</p>
                     <span className="text-xs text-gray-400">Front-end Developer</span>
