@@ -16,9 +16,9 @@ const Nav = ({showNotifications , setShowNotifications}) => {
               <IoIosNotificationsOutline onClick={() => setShowNotifications(!showNotifications)} className='text-2xl' />
               <div className='bg-white rounded-lg flex items-center gap-1 p-2'>
               <Image
-                src={`https://crmworkspace.runasp.net${user?.url}`
-                //     : '/default-avatar.png' // use a local placeholder image
-                }
+                // src={`https://crmworkspace.runasp.net${user?.url}`
+                    src={'/default-avatar.png'} // use a local placeholder image
+                // }
                 width={40}
                 height={40}
                 alt="User image"

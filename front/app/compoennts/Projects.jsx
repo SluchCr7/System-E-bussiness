@@ -3,8 +3,10 @@
 import { FiPlus, FiFilter, FiList, FiGrid } from "react-icons/fi";
 import { FaTasks } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { useDashboard } from "../Context/DashboardContext";
 
 export default function ProjectsDashboard() {
+    const {projects} = useDashboard()
   return (
     <div className="flex min-h-screen w-full p-6 flex-col items-start gap-3">
         <div className="flex items-center justify-between w-full">  
@@ -22,14 +24,17 @@ export default function ProjectsDashboard() {
                 <h3 className="text-xs text-gray-400 uppercase mb-2 p-3">Processes</h3>
                 <ul className="space-y-3">
                 <li className="flex flex-col items-start p-3 border-r-[4px] border-blue-600 gap-4 hover:bg-blue-50 text-sm text-gray-700">
-                    <span className="font-semibold">Medical App (iOS native)</span>
+                    <span className="font-semibold">{projects[0].name}</span>
                     <button className="text-blue-500 text-xs">View details &gt;</button>
                 </li>
-                <li className="text-sm text-gray-500 p-3 border-r-[4px] border-blue-600 gap-4 hover:bg-blue-50">Food Delivery Service</li>
-                <li className="text-sm text-gray-500 p-3 border-r-[4px] border-blue-600 gap-4 hover:bg-blue-50">Fortune Website</li>
-                <li className="text-sm text-gray-500 p-3 border-r-[4px] border-blue-600 gap-4 hover:bg-blue-50">Planner App</li>
-                <li className="text-sm text-gray-500 p-3 border-r-[4px] border-blue-600 gap-4 hover:bg-blue-50">Time Tracker - Personal Account</li>
-                <li className="text-sm text-gray-500 p-3 border-r-[4px] border-blue-600 gap-4 hover:bg-blue-50">Internal Project</li>
+                {
+                projects.map((project, i) => (
+                  <li key={i} className="flex flex-col items-start p-3 border-r-[4px] border-transparent gap-4 hover:bg-blue-50 text-sm text-gray-700">
+                    <span className="font-semibold">{project.name}</span>
+                    <button className="text-blue-500 text-xs">View details &gt;</button>
+                  </li>
+                )).slice(1, 5)
+                }
                 </ul>
             </div>
             </div>
